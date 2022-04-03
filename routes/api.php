@@ -22,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/employees', [EmployeeController::class, 'all']);
+
+Route::post('/employee',  [EmployeeController::class, 'create']);
