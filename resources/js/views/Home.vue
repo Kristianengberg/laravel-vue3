@@ -17,7 +17,7 @@
                 <p v-if="errors.phone">{{ errors.phone[0] }}</p>
                 <label for="position">Stilling</label>
                 <select name="position" v-model="data.position_id">
-                    <option value="1" selected>Funktionær</option>
+                    <option value="1">Funktionær</option>
                     <option value="2">Timelønnet</option>
                 </select>
                 <p v-if="errors.position_id">{{ errors.position_id[0] }}</p>
