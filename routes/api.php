@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,6 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/employees', function () {
-    return Employee::latest()->with('position')->get();
-});
+Route::get('/employees', [EmployeeController::class, 'all']);

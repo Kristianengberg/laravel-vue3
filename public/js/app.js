@@ -19570,7 +19570,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 response = _context.sent;
-                employees.value = response.data;
+                employees.value = response.data.data;
 
               case 4:
               case "end":

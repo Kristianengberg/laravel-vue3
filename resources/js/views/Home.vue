@@ -14,7 +14,7 @@ const employees = ref({})
 
 const getAllEmployees = async () => {
     let response = await axios.get('api/employees')
-    employees.value = response.data
+    employees.value = response.data.data
 }
 
 getAllEmployees()
