@@ -1,5 +1,9 @@
 <template>
-    <div>VUE HOME</div>
+    <div>
+        <div v-if="employees[0]">{{ employees }}</div>
+        <div v-else>Loading Employees</div>
+    </div>
+
 </template>
 
 <script>
@@ -20,7 +24,7 @@ export default {
         getAllEmployees()
 
         return {
-
+            employees
         }
     }
 
