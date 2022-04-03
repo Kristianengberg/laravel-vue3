@@ -19,7 +19,7 @@ class EmployeeResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'phone' => $this->phone,
-            'position_name' => Position::find($this->position_id)->position_name,
+            'position_name' => $this->position_name
         ];
     }
 }

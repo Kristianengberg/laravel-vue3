@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Resources\EmployeeResource;
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
 {
     public function all()
     {
-        return EmployeeResource::collection(Employee::latest()->with('position')->get());
+        return EmployeeResource::collection(DB::table('employees')->join('positions', 'positions.id', '=', 'position_id')->get());
     }
 }
