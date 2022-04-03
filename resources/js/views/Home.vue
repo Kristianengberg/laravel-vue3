@@ -10,14 +10,14 @@ export default {
 
     setup() {
 
-        const value = ref({})
+        const employees = ref({})
 
-        const test = async () => {
+        const getAllEmployees = async () => {
             let response = await axios.get('api/employees')
-            value.value = response.data
+            employees.value = response.data
         }
 
-        test()
+        getAllEmployees()
 
         return {
 

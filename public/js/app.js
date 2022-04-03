@@ -19554,9 +19554,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup() {
-    var value = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_2__.ref)({});
+    var employees = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_2__.ref)({});
 
-    var test = /*#__PURE__*/function () {
+    var getAllEmployees = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
@@ -19568,7 +19568,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 response = _context.sent;
-                value.value = response.data;
+                employees.value = response.data;
 
               case 4:
               case "end":
@@ -19578,12 +19578,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }));
 
-      return function test() {
+      return function getAllEmployees() {
         return _ref.apply(this, arguments);
       };
     }();
 
-    test();
+    getAllEmployees();
     return {};
   }
 });
