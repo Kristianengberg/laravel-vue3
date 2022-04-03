@@ -21,7 +21,7 @@
                     <option value="2">Timelønnet</option>
                 </select>
                 <p v-if="errors.position_id">{{ errors.position_id[0] }}</p>
-                <button type="submit">Click</button>
+                <button type="submit" class="btn btn-primary">Click</button>
             </form>
         </div>
     </div>
@@ -63,5 +63,5 @@ const createNewEmployee = async (data) => {
 
 </script>
 
-<style>
+<style lang="scss">
 </style>

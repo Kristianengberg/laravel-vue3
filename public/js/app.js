@@ -19735,7 +19735,8 @@ var _hoisted_13 = {
 };
 
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  type: "submit"
+  type: "submit",
+  "class": "btn btn-primary"
 }, "Click", -1
 /* HOISTED */
 );
