@@ -13,7 +13,7 @@ export default {
         const value = ref({})
 
         const test = async () => {
-            let response = await axios.get('api/users')
+            let response = await axios.get('api/employees')
             value.value = response.data
         }
 
