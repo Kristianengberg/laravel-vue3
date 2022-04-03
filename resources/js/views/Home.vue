@@ -64,4 +64,6 @@ const createNewEmployee = async (data) => {
 </script>
 
 <style lang="scss">
+.list {
+}
 </style>
