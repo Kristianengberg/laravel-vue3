@@ -16,6 +16,7 @@ class Employee extends Model
         'position_id'
     ];
 
+    //relationen til hvilken stilling en medarbejder har. En medarbejder tilhøre en stilling (funktionær, timelønnet)
     public function position() {
         return $this->belongsTo(Position::class);
     }

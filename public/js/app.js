@@ -22757,8 +22757,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
+    /* Halløj Kristian! Dette er som sagt composition API :) den tydelige forskel er at jeg egentlig bare skriver JavaScript uden rigtig noget "vue" relateret inde i script tags som nu hedder <script setup> */
+
     var employees = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_2__.ref)([]);
-    var errors = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_2__.ref)([]);
+    var errors = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_2__.ref)([]); // metode til at få all medarbejdere. Rammer API routen api/employees som returnere JSON
 
     var getAllEmployees = /*#__PURE__*/function () {
       var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -22785,13 +22787,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return function getAllEmployees() {
         return _ref2.apply(this, arguments);
       };
-    }();
+    }(); //kalder getAllEmployees i "setup", composition API. Det er det første der bliver gjordt inden siden bliver renderet
 
-    getAllEmployees();
+
+    getAllEmployees(); //et halv tomt employee objekt som kun har position id for at starte "select" elementet på position 1.
+
     var employee = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_2__.ref)({
       position_id: 1
-    });
-    var creating = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_2__.ref)(false);
+    }); // en variabel til at styre om loaderen skal være aktiv
+
+    var creating = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_2__.ref)(false); //metode der post'er data til api/employee. Hvis den er successfuld henter den employees igen og resetter employee variablen. Hvis der er fejl fylder den error array op med fejl beskeder.
 
     var createNewEmployee = /*#__PURE__*/function () {
       var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(data) {
@@ -22996,7 +23001,7 @@ var _hoisted_24 = {
   height: "50"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [$setup.employees[0] ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.employees, function (employee) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Jeg havde nok personligt splittet hele dette component op i flere dele, også selvom det ikke skal genbruges. Synes der er meget at holde styr på med så meget HTML "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" overall div til at styre visning af medarbejdere. Visningen af medarbejdere sker via loop og reducerer mængden af HTML  "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [$setup.employees[0] ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.employees, function (employee) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       key: employee.email,
       "class": "border-bottom row mx-3 my-2 py-2"
@@ -23012,7 +23017,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ))]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, _hoisted_7))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+  ))])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, _hoisted_7))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" overall div til input felter og form "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     onSubmit: _cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
       return $setup.createNewEmployee($setup.employee);
     }, ["prevent"]))
@@ -23064,7 +23069,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [!$setup.creating ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", _hoisted_23, "Gem")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", _hoisted_24))])], 32
   /* HYDRATE_EVENTS */
-  )])]);
+  )])])], 2112
+  /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
+  );
 }
 
 /***/ }),

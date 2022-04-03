@@ -12,6 +12,8 @@ class PositionResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
+
+    // Position resource, sender kun navnet på stillingen med
     public function toArray($request)
     {
         return [

@@ -13,6 +13,7 @@ class Position extends Model
         'position_name'
     ];
 
+    //relationen til medarbejdere. En stilling kan godt have mange medarbejdere
     public function employees()
     {
         return $this->hasMany(Employee::class);

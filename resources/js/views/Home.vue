@@ -1,8 +1,10 @@
 <template>
+    <!-- Jeg havde nok personligt splittet hele dette component op i flere dele, også selvom det ikke skal genbruges. Synes der er meget at holde styr på med så meget HTML -->
     <div class="container my-3 d-flex flex-column">
         <div class="d-flex justify-content-center">
             <h1 class>Medarbejder Kartotek</h1>
         </div>
+        <!-- overall div til at styre visning af medarbejdere. Visningen af medarbejdere sker via loop og reducerer mængden af HTML  -->
         <div class="overflow-auto content-box border rounded bg-secondary text-light shadow mb-3">
             <div class="overflow-auto py-3" v-if="employees[0]">
                 <div
@@ -18,7 +20,7 @@
                 <img src="../loaders/loadingbar.gif" alt="sk8ter boi" width="64" height="64" class />
             </div>
         </div>
-
+        <!-- overall div til input felter og form -->
         <div class="p-3 border rounded bg-secondary shadow">
             <form @submit.prevent="createNewEmployee(employee)">
                 <div class="form-floating mb-3">
@@ -70,7 +72,10 @@
     </div>
 </template>
 
+
+
 <script setup>
+/* Halløj Kristian! Dette er som sagt composition API :) den tydelige forskel er at jeg egentlig bare skriver JavaScript uden rigtig noget "vue" relateret inde i script tags som nu hedder <script setup> */
 import axios from 'axios'
 import { ref } from '@vue/reactivity'
 
@@ -78,20 +83,25 @@ import { ref } from '@vue/reactivity'
 const employees = ref([])
 const errors = ref([])
 
-
+// metode til at få all medarbejdere. Rammer API routen api/employees som returnere JSON
 const getAllEmployees = async () => {
     let response = await axios.get('api/employees')
     employees.value = response.data.data
 }
 
+//kalder getAllEmployees i "setup", composition API. Det er det første der bliver gjordt inden siden bliver renderet
 getAllEmployees()
 
+
+//et halv tomt employee objekt som kun har position id for at starte "select" elementet på position 1.
 const employee = ref({
     position_id: 1
 })
 
+// en variabel til at styre om loaderen skal være aktiv
 const creating = ref(false);
 
+//metode der post'er data til api/employee. Hvis den er successfuld henter den employees igen og resetter employee variablen. Hvis der er fejl fylder den error array op med fejl beskeder.
 const createNewEmployee = async (data) => {
     errors.value = {}
     creating.value = true;

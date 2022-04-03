@@ -13,6 +13,8 @@ class EmployeeResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
+
+    //En resource til employees. Jeg kan godt lide at bruge resources til at definere hvad der skal sendes med til en API route.
     public function toArray($request)
     {
         return [
