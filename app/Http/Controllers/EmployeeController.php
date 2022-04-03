@@ -11,6 +11,6 @@ class EmployeeController extends Controller
 {
     public function all()
     {
-        return EmployeeResource::collection(DB::table('employees')->join('positions', 'positions.id', '=', 'position_id')->get());
+        return EmployeeResource::collection(Employee::join('positions', 'positions.id', '=', 'position_id')->get());
     }
 }
