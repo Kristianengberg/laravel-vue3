@@ -32,7 +32,7 @@ class EmployeeController extends Controller
                 'max:99999999',
                 Rule::unique(Employee::class),
             ],
-            'position_id' => ['required', 'numeric', 'max:1']
+            'position_id' => ['required', 'numeric', 'max:2']
         ]);
 
         Employee::create([
