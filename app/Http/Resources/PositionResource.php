@@ -2,10 +2,9 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Position;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class EmployeeResource extends JsonResource
+class PositionResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,10 +15,7 @@ class EmployeeResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'name' => $this->name,
-            'email' => $this->email,
-            'phone' => $this->phone,
-            'position_name' => Position::find($this->position_id)->position_name,
+            'position_name' => $this->position_name
         ];
     }
 }
